@@ -75,4 +75,5 @@ ehthumbs_vista.db
 $RECYCLE.BIN/
 *.lnk
 
-Testing/
+copy.bat
+libs/

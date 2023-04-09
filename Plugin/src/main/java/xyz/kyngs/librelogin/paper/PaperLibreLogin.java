@@ -16,9 +16,6 @@ import net.byteflux.libby.Library;
 import net.byteflux.libby.LibraryManager;
 import net.kyori.adventure.audience.Audience;
 import org.apache.logging.log4j.LogManager;
-import org.bstats.bukkit.Metrics;
-import org.bstats.charts.CustomChart;
-import org.bstats.charts.SimplePie;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
@@ -211,19 +208,6 @@ public class PaperLibreLogin extends AuthenticLibreLogin<Player, World> {
     @Override
     protected AuthenticImageProjector<Player, World> provideImageProjector() {
         return null;
-    }
-
-    @Override
-    protected void initMetrics(CustomChart... charts) {
-        var metrics = new Metrics(bootstrap, 17915);
-
-        for (var chart : charts) {
-            metrics.addCustomChart(chart);
-        }
-
-        var isVelocity = new SimplePie("is_velocity", () -> "Paper");
-
-        metrics.addCustomChart(isVelocity);
     }
 
     @Override

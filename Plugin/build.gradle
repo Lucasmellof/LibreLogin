@@ -42,7 +42,6 @@ shadowJar {
     relocate 'com.typesafe.config', 'xyz.kyngs.librelogin.lib.hocon'
     relocate 'com.zaxxer.hikari', 'xyz.kyngs.librelogin.lib.hikari'
     relocate 'com.mysql', 'xyz.kyngs.librelogin.lib.mysql'
-    relocate 'org.bstats', 'xyz.kyngs.librelogin.lib.metrics'
     relocate 'org.intellij', 'xyz.kyngs.librelogin.lib.intellij'
     relocate 'org.jetbrains', 'xyz.kyngs.librelogin.lib.jetbrains'
     relocate 'io.leangen.geantyref', 'xyz.kyngs.librelogin.lib.reflect'
@@ -80,11 +79,11 @@ dependencies {
     implementation 'com.github.kyngs.commands:acf-paper:object-fix-SNAPSHOT'
 
     //Utils
-    compileOnly 'com.github.ben-manes.caffeine:caffeine:3.1.1'
-    compileOnly 'org.spongepowered:configurate-hocon:4.1.2'
-    compileOnly 'at.favre.lib:bcrypt:0.9.0'
-    compileOnly 'dev.samstevens.totp:totp:1.7.1'
-    compileOnly 'dev.simplix:protocolize-api:2.2.5'
+    implementation 'com.github.ben-manes.caffeine:caffeine:3.1.1'
+    implementation 'org.spongepowered:configurate-hocon:4.1.2'
+    implementation 'at.favre.lib:bcrypt:0.9.0'
+    implementation 'dev.samstevens.totp:totp:1.7.1'
+    implementation 'dev.simplix:protocolize-api:2.2.5'
 
     //Geyser
     compileOnly 'org.geysermc.floodgate:api:2.0-SNAPSHOT'
@@ -94,14 +93,15 @@ dependencies {
     implementation 'net.kyori:adventure-platform-bungeecord:4.1.2'
     compileOnly 'com.github.limework.redisbungee:RedisBungee-API:0.7.2'
 
-    //BStats
-    implementation 'org.bstats:bstats-velocity:3.0.0'
-    implementation 'org.bstats:bstats-bungeecord:3.0.0'
-    implementation 'org.bstats:bstats-bukkit:3.0.0'
+//    //BStats
+//    implementation 'org.bstats:bstats-velocity:3.0.0'
+//    implementation 'org.bstats:bstats-bungeecord:3.0.0'
+//    implementation 'org.bstats:bstats-bukkit:3.0.0'
 
     //Paper
-    compileOnly 'io.papermc.paper:paper-api:1.18.2-R0.1-SNAPSHOT'
-    compileOnly 'com.comphenix.protocol:ProtocolLib:5.0.0-SNAPSHOT'
+    compileOnly 'io.papermc.paper:paper-api:1.19.4-R0.1-SNAPSHOT'
+//    compileOnly 'com.comphenix.protocol:ProtocolLib:5.0.0-SNAPSHOT'
+    compileOnly(files('libs/ProtocolLib.jar'))
     compileOnly 'io.netty:netty-transport:4.1.79.Final'
     compileOnly 'com.mojang:datafixerupper:5.0.28' //I hate this so much
     compileOnly 'org.apache.logging.log4j:log4j-core:2.19.0'

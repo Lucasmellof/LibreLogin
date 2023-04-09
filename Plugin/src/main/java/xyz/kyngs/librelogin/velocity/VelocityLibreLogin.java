@@ -27,8 +27,6 @@ import net.byteflux.libby.LibraryManager;
 import net.byteflux.libby.VelocityLibraryManager;
 import net.kyori.adventure.audience.Audience;
 import net.kyori.adventure.text.Component;
-import org.bstats.charts.CustomChart;
-import org.bstats.velocity.Metrics;
 import org.jetbrains.annotations.Nullable;
 import xyz.kyngs.librelogin.api.LibreLoginPlugin;
 import xyz.kyngs.librelogin.api.Logger;
@@ -75,8 +73,6 @@ public class VelocityLibreLogin extends AuthenticLibreLogin<Player, RegisteredSe
     private Path dataDir;
     @Inject
     private ProxyServer server;
-    @Inject
-    private Metrics.Factory factory;
     @Inject
     private PluginDescription description;
     @Nullable
@@ -222,14 +218,6 @@ public class VelocityLibreLogin extends AuthenticLibreLogin<Player, RegisteredSe
         return server.getPlayer(uuid).orElse(null);
     }
 
-    @Override
-    protected void initMetrics(CustomChart... charts) {
-        var metrics = factory.make(this, 17981);
-
-        for (CustomChart chart : charts) {
-            metrics.addCustomChart(chart);
-        }
-    }
 
     @Override
     public Audience getAudienceFromIssuer(CommandIssuer issuer) {
