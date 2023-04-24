@@ -17,24 +17,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class LogFilter implements Filter {
-
+    
     private static final Set<String> PROTECTED_COMMANDS;
 
     static {
-        PROTECTED_COMMANDS = new HashSet<>();
-
-        PROTECTED_COMMANDS.add("login");
-        PROTECTED_COMMANDS.add("l");
-        PROTECTED_COMMANDS.add("log");
-        PROTECTED_COMMANDS.add("register");
-        PROTECTED_COMMANDS.add("reg");
-        PROTECTED_COMMANDS.add("premium");
-        PROTECTED_COMMANDS.add("autologin");
-        PROTECTED_COMMANDS.add("2faconfirm");
-        PROTECTED_COMMANDS.add("changepassword");
-        PROTECTED_COMMANDS.add("changepass");
-        PROTECTED_COMMANDS.add("passch");
-        PROTECTED_COMMANDS.add("passwd");
+        PROTECTED_COMMANDS =  Set.of(
+            "login", "l", "log", "register", "reg", "premium", "autologin", "2faconfirm", "changepassword", "changepass", "passch", "passwd"
+        );
     }
 
     private Result checkMessage(String message) {
